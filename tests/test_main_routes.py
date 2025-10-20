@@ -51,5 +51,5 @@ class TestMainRoutes:
         assert "openapi" in data
         assert "info" in data
         assert "paths" in data
-        assert data["info"]["title"] == "App22"
+        assert data["info"]["title"] == "playApp"
         assert data["info"]["version"] == "v1.0.0" 

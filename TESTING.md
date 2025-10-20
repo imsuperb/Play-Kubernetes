@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document describes the comprehensive test suite and improvements made to the App22 FastAPI application.
+This document describes the comprehensive test suite and improvements made to the playApp FastAPI application.
 
 ## Test Structure
 

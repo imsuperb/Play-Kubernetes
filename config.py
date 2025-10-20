@@ -9,11 +9,11 @@ from ast import literal_eval
 class Config(BaseSettings):
     """Application configuration using Pydantic BaseSettings.
     
-    Environment variables can be prefixed with APP22_ (e.g., APP22_DEBUG=1).
+    Environment variables can be prefixed with PLAYAPP_ (e.g., PLAYAPP_DEBUG=1).
     """
     
     model_config = SettingsConfigDict(
-        env_prefix='APP22_',
+        env_prefix='PLAYAPP_',
         env_file='.env',
         env_file_encoding='utf-8',
         case_sensitive=False,
@@ -38,7 +38,7 @@ class Config(BaseSettings):
     
     # Database Settings
     db_url: str = Field(
-        default="sqlite:///app22.db",
+        default="sqlite:///playApp.db",
         description="Database connection URI"
     )
     
@@ -106,7 +106,7 @@ class Config(BaseSettings):
         default="mongodb://localhost:27017",
         description="MongoDB connection URI",
     )
-    mongo_db: str = Field(default="app22", description="MongoDB database name")
+    mongo_db: str = Field(default="playApp", description="MongoDB database name")
     mongo_collection: str = Field(
         default="Requests", description="MongoDB collection for request logs"
     )
@@ -134,6 +134,9 @@ class Config(BaseSettings):
         """Parse port from string to integer."""
         if isinstance(v, str):
             try:
+                # Handle URL-like strings by extracting the port number
+                if '://' in v:
+                    v = v.split(':')[-1]  # Get the last part after :
                 return int(v)
             except ValueError:
                 raise ValueError(f"Port must be a valid integer, got: {v}")

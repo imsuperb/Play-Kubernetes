@@ -34,7 +34,7 @@ tags_metadata = [
 
 def create_app():
     app = FastAPI(
-        title="App22",
+        title="playApp",
         description="The most useful web application to perform tests in the Kubernetes!",
         version=config.version or "1.0.0",
         docs_url="/docs",

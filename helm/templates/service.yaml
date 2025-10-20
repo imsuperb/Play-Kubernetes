@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "app22.fullname" . }}
+  name: {{ include "playApp.fullname" . }}
   labels:
-    {{- include "app22.labels" . | nindent 4 }}
+    {{- include "playApp.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -15,4 +15,4 @@ spec:
       nodePort: {{ .Values.service.nodePort }}
       {{- end }}
   selector:
-    {{- include "app22.selectorLabels" . | nindent 4 }}
+    {{- include "playApp.selectorLabels" . | nindent 4 }}

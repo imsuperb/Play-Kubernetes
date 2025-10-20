@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "app22.fullname" . }}
+  name: {{ include "playApp.fullname" . }}
   labels:
-    {{- include "app22.labels" . | nindent 4 }}
+    {{- include "playApp.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "app22.selectorLabels" . | nindent 6 }}
+      {{- include "playApp.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        {{- include "app22.selectorLabels" . | nindent 8 }}
+        {{- include "playApp.selectorLabels" . | nindent 8 }}
     spec:
       containers:
-        - name: app22
+        - name: playApp
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:

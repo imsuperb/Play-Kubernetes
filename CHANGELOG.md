@@ -26,7 +26,7 @@ All notable changes to this project will be documented in this file.
 
 - **Improved Configuration System**:
   - Pydantic-based configuration with type validation
-  - Environment variable support with `APP22_` prefix
+  - Environment variable support with `PLAYAPP_` prefix
   - Backward compatibility properties for legacy configuration access
   - Enhanced MongoDB configuration options
 
@@ -86,7 +86,7 @@ All notable changes to this project will be documented in this file.
 ### Migration Notes
 - **API Compatibility**: All existing endpoints maintain the same paths and functionality
 - **Response Format**: JSON responses now use Pydantic models for consistency
-- **Environment Variables**: All `APP22_` prefixed variables continue to work as before
+- **Environment Variables**: All `PLAYAPP_` prefixed variables continue to work as before
 - **Database**: Existing SQLite database files remain compatible
 - **Docker**: Container interface remains unchanged, only internal implementation differs
 
@@ -96,4 +96,4 @@ All notable changes to this project will be documented in this file.
 - **Reduced Memory**: Elimination of Flask's overhead and dependencies
 - **Hot Reload**: Development server supports automatic reloading on code changes
 
-[2.0.0]: https://github.com/your-org/app22/releases/tag/v2.0.0
+[2.0.0]: https://github.com/your-org/playApp/releases/tag/v2.0.0

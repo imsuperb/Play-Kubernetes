@@ -1,8 +1,8 @@
-{{- define "app22.name" -}}
+{{- define "playApp.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
-{{- define "app22.fullname" -}}
+{{- define "playApp.fullname" -}}
 {{- if .Values.fullnameOverride -}}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" -}}
 {{- else -}}
@@ -15,15 +15,15 @@
 {{- end -}}
 {{- end -}}
 
-{{- define "app22.labels" -}}
+{{- define "playApp.labels" -}}
 helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
-app.kubernetes.io/name: {{ include "app22.name" . }}
+app.kubernetes.io/name: {{ include "playApp.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 app.kubernetes.io/version: {{ .Chart.AppVersion }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end -}}
 
-{{- define "app22.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "app22.name" . }}
+{{- define "playApp.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "playApp.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end -}}

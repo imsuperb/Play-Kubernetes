@@ -49,7 +49,7 @@ def cat() -> Dict[str, Any]:
 @router.get("/files", tags=["Filesystem"])
 def files(file: Optional[str] = Query(None, description="Path to specific file to read"),
           ls: Optional[bool] = Query(None, description="List files in directory")) -> Dict[str, Any]:
-    """Filesystem operations on the /app22/data directory.
+    """Filesystem operations on the /playApp/data directory.
     
     Args:
         file: Path to specific file to read (returns content and checksum)

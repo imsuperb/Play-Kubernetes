@@ -1,0 +1,25 @@
+apiVersion: skaffold/v4beta8
+kind: Config
+metadata:
+  name: playApp
+build:
+  local:
+    push: false
+  artifacts:
+    - image: playApplocal
+      docker:
+        dockerfile: Dockerfile
+deploy:
+  helm:
+    releases:
+      - name: playApplocal
+        namespace: playApplocal
+        createNamespace: true
+        chartPath: ./helm
+        setValueTemplates:
+          image.repository: "{{ .IMAGE_REPO_playApplocal }}"
+          image.tag: "{{ .IMAGE_TAG_playApplocal }}"
+profiles:
+  - name: dev
+    activation:
+      - kubeContext: docker-desktop

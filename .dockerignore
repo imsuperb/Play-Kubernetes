@@ -1,5 +1,5 @@
 **/.venv
-**/app22.db
+**/playApp.db
 **/.__pycache__
 **/.dockerignore
 **/Dockerfile
